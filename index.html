@@ -873,7 +873,54 @@
         });
       });
     });
+  </script>
 
+  <!-- Add this script before the closing body tag -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const navTogglers = document.querySelectorAll('[data-nav-toggler]');
+      const navbar = document.querySelector('[data-navbar]');
+      const navbarContent = document.querySelector('[data-navbar-content]');
+      const overlay = document.querySelector('[data-overlay]');
+      const menuIcon = document.querySelector('[data-menu-icon]');
+      const closeIcon = document.querySelector('[data-close-icon]');
+      
+      function toggleNav() {
+        overlay.classList.toggle('hidden');
+        navbarContent.classList.toggle('-translate-x-full');
+        document.body.classList.toggle('overflow-hidden');
+        
+        // Toggle icons
+        menuIcon.classList.toggle('hidden');
+        closeIcon.classList.toggle('hidden');
+      }
+      
+      navTogglers.forEach(toggler => {
+        toggler.addEventListener('click', toggleNav);
+      });
+
+      // Close nav when clicking overlay
+      overlay.addEventListener('click', toggleNav);
+
+      // Close nav when clicking links
+      const navLinks = document.querySelectorAll('[data-nav-link]');
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          toggleNav();
+        });
+      });
+    });
+  </script>
+
+  <!-- Add this script before the closing body tag -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100
+    });
   </script>
 
 </body>
