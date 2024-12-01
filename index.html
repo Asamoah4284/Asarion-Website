@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asarion - Smart Ideas for your Brand are Here</title>
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik+Mono+One&display=swap" rel="stylesheet">
+
+  <!-- 
+    - preload images
+  -->
+  <link rel="preload" as="image" href="assets/images/hero-banner.png">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Add Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+      opacity: 0;
+    }
+
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-400 { animation-delay: 0.4s; }
+    .delay-600 { animation-delay: 0.6s; }
+    .delay-800 { animation-delay: 0.8s; }
+  </style>
+
+  <!-- Add AOS library -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+
+</head>
+
+<body>
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container md:px-48 ">
+
+      <a href="#" class="logo">Asarion</a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center space-x-8">
+        <a href="#home" class="navbar-link hover:text-blue-600 transition-colors">Home</a>
+        <a href="#about" class="navbar-link hover:text-blue-600 transition-colors">About</a>
+        <a href="#services" class="navbar-link hover:text-blue-600 transition-colors">Services</a>
+        <a href="#features" class="navbar-link hover:text-blue-600 transition-colors">Features</a>
+        <a href="#" class="navbar-link hover:text-blue-600 transition-colors">Blog</a>
+        <a href="#" class="navbar-link hover:text-blue-600 transition-colors">Contact Us</a>
+      </nav>
+
+      <!-- Mobile Navigation -->
+      <nav class="mobile-navbar md:hidden" data-navbar>
+        <!-- Overlay -->
+        <div class="fixed inset-0 bg-gray-800 bg-opacity-50 z-40 hidden" data-overlay></div>
+        
+        <!-- Mobile Menu Content -->
+        <div class="fixed top-0 left-0 w-1/2 h-full bg-white z-50 transform -translate-x-full transition-all duration-300" data-navbar-content>
+          <!-- Header -->
+          <div class="flex items-center justify-between p-4 border-b">
+            <a href="#" class="logo">Asarion</a>
+            <button class="nav-close-btn p-2" aria-label="close menu" data-nav-toggler>
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Navigation Links -->
+          <ul class="py-4">
+            <li>
+              <a href="#home" class="block px-4 py-2 hover:bg-gray-50" data-nav-link>Home</a>
+            </li>
+            <li>
+              <a href="#about" class="block px-4 py-2 hover:bg-gray-50" data-nav-link>About</a>
+            </li>
+            <li>
+              <a href="#services" class="block px-4 py-2 hover:bg-gray-50" data-nav-link>Services</a>
+            </li>
+            <li>
+              <a href="#features" class="block px-4 py-2 hover:bg-gray-50" data-nav-link>Features</a>
+            </li>
+            <li>
+              <a href="#" class="block px-4 py-2 hover:bg-gray-50" data-nav-link>Blog</a>
+            </li>
+            <li>
+              <a href="#" class="block px-4 py-2 hover:bg-gray-50" data-nav-link>Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button class="nav-open-btn md:hidden" aria-label="open menu" data-nav-toggler>
+        <!-- Hamburger Icon -->
+        <svg class="w-6 h-6 block" data-menu-icon fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <!-- Close Icon (hidden by default) -->
+        <svg class="w-6 h-6 hidden" data-close-icon fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <a href="#" class="btn-outline hidden md:block">Let's talk</a>
+
+    </div>
+  </header>
+
+
+
+
+
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="section hero" id="home" aria-label="hero">
+        <div class="container md:px-40">
+
+          <div class="hero-content">
+            <p class="hero-subtitle has-before animate-fade-in-up">
+              Welcome to Our Agency
+            </p>
+
+            <h1 class="h1 hero-title animate-fade-in-up delay-200">
+              Smart Ideas for your Brand are Here
+            </h1>
+
+            <p class="hero-text animate-fade-in-up delay-400">
+              Donec tincidunt lacinia diam, eu volutpat est sollicitudin at. Vestibulum ut mi tristi que, vulputate ante
+              quis, tempus
+              enim. Proin quis euismod purus. Suspen disse efficitur
+              aliquam enim sed consequat vulputate ante quis.
+            </p>
+
+            <div class="btn-group animate-fade-in-up delay-600">
+              <a href="#" class="btn btn-primary transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                Discover More
+              </a>
+
+              <button class="flex-btn transition-all duration-300 hover:scale-105">
+                <div class="btn-icon animate-pulse">
+                  <ion-icon name="play" aria-hidden="true"></ion-icon>
+                </div>
+                <span class="span">How it works</span>
+              </button>
+            </div>
+          </div>
+
+          <figure class="hero-banner has-before img-holder" style="--width: 650; --height: 650;">
+            <img src="assets/images/hero-banner.png" width="650" height="650" alt="hero banner" class="img-cover">
+          </figure>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #ABOUT
+      -->
+
+      <section class="section about" id="about" aria-label="about">
+        <div class="container md:px-40">
+
+          <figure class="about-banner opacity-0 transform translate-x-[-50px] transition-all duration-1000" 
+            data-aos="fade-right">
+            <img src="assets/images/about-banner.png" width="802" height="654" loading="lazy" alt="about banner"
+              class="w-100 move-anim">
+            
+            <!-- Using Font Awesome icons instead of images -->
+            <i class="fa-solid fa-circle shape shape-1 move-up opacity-0 transition-opacity duration-700 delay-500"></i>
+            <i class="fa-solid fa-play shape shape-3 move-down opacity-0 transition-opacity duration-700 delay-700"></i>
+          </figure>
+
+          <div class="about-content opacity-0 transform translate-x-[50px] transition-all duration-1000" 
+            data-aos="fade-left">
+
+            <h2 class="h2-sm section-title opacity-0 transform translate-y-[20px] transition-all duration-700 delay-300"
+              data-aos="fade-up">
+              We create some things, Design for your success future.
+            </h2>
+
+            <p class="section-text opacity-0 transform translate-y-[20px] transition-all duration-700 delay-500"
+              data-aos="fade-up">
+              Lorem Ipsum is simply dumm of free available in market the way printing and typesetting industry has been
+              the industrys standard dummy text ever.
+            </p>
+
+            <ul class="about-list">
+              <li class="has-before opacity-0 transform translate-y-[20px] transition-all duration-500 delay-700"
+                data-aos="fade-up">
+                Price of additional materials or parts (if needed)
+              </li>
+
+              <li class="has-before opacity-0 transform translate-y-[20px] transition-all duration-500 delay-800"
+                data-aos="fade-up">
+                Transportation cost for carrying new materials/parts
+              </li>
+
+              <li class="has-before opacity-0 transform translate-y-[20px] transition-all duration-500 delay-900"
+                data-aos="fade-up">
+                You will get 100% money back offer.
+              </li>
+            </ul>
+
+          </div>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #SERVICE
+      -->
+
+      <section class="section service" id="services" aria-label="service">
+        <div class="container md:px-40">
+
+          <p class="section-subtitle text-center">-What We Offer-</p>
+
+          <h2 class="h2 section-title text-center">Our Creative Services</h2>
+
+          <p class="section-text text-center">
+            Get the most of reduction in your team’s operating costs for the whole product which creates amazing UI/UX
+            experiences.
+          </p>
+
+          <ul class="grid-list">
+
+            <li>
+              <div class="service-card has-after">
+
+                <figure class="card-icon">
+                  <img src="assets/images/service-1.png" width="140" height="140" loading="lazy"
+                    alt="UI/UX Creative Design" class="img">
+                </figure>
+
+                <div class="card-content">
+
+                  <h3 class="h3 card-title">UI/UX Creative Design</h3>
+
+                  <p class="card-text">
+                    Lorem ipsum dolor sit amet, consectetur adi piscing semper turpis. Nullam eget luctlie gula and
+                    adipiscing elit.
+                  </p>
+
+                  <a href="#" class="btn-link">
+                    <span class="span">Read More</span>
+
+                    <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                  </a>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card has-after">
+
+                <figure class="card-icon">
+                  <img src="assets/images/service-2.png" width="140" height="140" loading="lazy" alt="App Development"
+                    class="img">
+                </figure>
+
+                <div class="card-content">
+
+                  <h3 class="h3 card-title">App Development</h3>
+
+                  <p class="card-text">
+                    Lorem ipsum dolor sit amet, consectetur adi piscing semper turpis. Nullam eget luctlie gula and
+                    adipiscing elit.
+                  </p>
+
+                  <a href="#" class="btn-link">
+                    <span class="span">Read More</span>
+
+                    <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                  </a>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card has-after">
+
+                <figure class="card-icon">
+                  <img src="assets/images/service-3.png" width="140" height="140" loading="lazy"
+                    alt="Professional Content Writer" class="img">
+                </figure>
+
+                <div class="card-content">
+
+                  <h3 class="h3 card-title">Professional Content Writer</h3>
+
+                  <p class="card-text">
+                    Lorem ipsum dolor sit amet, consectetur adi piscing semper turpis. Nullam eget luctlie gula and
+                    adipiscing elit.
+                  </p>
+
+                  <a href="#" class="btn-link">
+                    <span class="span">Read More</span>
+
+                    <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                  </a>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card has-after">
+
+                <figure class="card-icon">
+                  <img src="assets/images/service-4.png" width="140" height="140" loading="lazy" alt="Graphic Design"
+                    class="img">
+                </figure>
+
+                <div class="card-content">
+
+                  <h3 class="h3 card-title">Graphic Design</h3>
+
+                  <p class="card-text">
+                    Lorem ipsum dolor sit amet, consectetur adi piscing semper turpis. Nullam eget luctlie gula and
+                    adipiscing elit.
+                  </p>
+
+                  <a href="#" class="btn-link">
+                    <span class="span">Read More</span>
+
+                    <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                  </a>
+
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+          <a href="#" class="btn btn-primary">Get Started</a>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #FEATURES
+      -->
+
+      <section class="section features" id="features" aria-label="features">
+        <div class="container md:px-40">
+
+          <p class="section-subtitle text-center">-Why Choose Us-</p>
+
+          <h2 class="h2 section-title text-center">Reasons to Choose Us</h2>
+
+          <p class="section-text text-center">
+            Get the most of reduction in your team’s operating costs for the whole product which creates amazing UI/UX
+            experiences.
+          </p>
+
+          <ul class="grid-list">
+
+            <li>
+              <div class="features-card">
+
+                <data class="card-number" value="01">01</data>
+
+                <h3 class="h3 card-title">Free Icon Plugin</h3>
+
+                <p class="card-text">
+                  Nullam ullamcorper condimentum urna eu accumsan.
+                </p>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="features-card">
+
+                <data class="card-number" value="02">02</data>
+
+                <h3 class="h3 card-title">Free 6 Month Support</h3>
+
+                <p class="card-text">
+                  Nullam ullamcorper condimentum urna eu accumsan.
+                </p>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="features-card">
+
+                <data class="card-number" value="03">03</data>
+
+                <h3 class="h3 card-title">Customer Strategy</h3>
+
+                <p class="card-text">
+                  Nullam ullamcorper condimentum urna eu accumsan.
+                </p>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="features-card">
+
+                <data class="card-number" value="04">04</data>
+
+                <h3 class="h3 card-title">Best Premimum Image</h3>
+
+                <p class="card-text">
+                  Nullam ullamcorper condimentum urna eu accumsan.
+                </p>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="features-card">
+
+                <data class="card-number" value="05">05</data>
+
+                <h3 class="h3 card-title">Most Advanced Features</h3>
+
+                <p class="card-text">
+                  Nullam ullamcorper condimentum urna eu accumsan.
+                </p>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="features-card">
+
+                <data class="card-number" value="06">06</data>
+
+                <h3 class="h3 card-title">Very Reasonable Price</h3>
+
+                <p class="card-text">
+                  Nullam ullamcorper condimentum urna eu accumsan.
+                </p>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #FAQ
+      -->
+      <section class="section faq bg-gradient-to-b from-gray-50 to-white" id="faq" aria-label="faq">
+        <div class="container md:px-40 mx-auto px-4 py-24">
+          <!-- Enhanced Header section -->
+          <p class="section-subtitle text-center text-blue-600 font-semibold text-5xl">-FAQ-</p>
+
+          <h2 class="h2 section-title text-center text-4xl md:text-5xl font-bold mb-6">Got Questions?</h2>
+          
+          <p class="text-gray-600 text-center text-xxl max-w-2xl mx-auto mb-20">
+            Find answers to common questions about our services, process, and support. Can't find what you're looking for? Feel free to contact us.
+          </p>
+
+          <!-- FAQ Grid with improved spacing and styling -->
+          <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            <!-- Enhanced Left Column -->
+            <div class="space-y-8">
+              <!-- FAQ Item 1 with improved design -->
+              <div class="faq-item bg-white rounded-lg border border-gray-200 mb-4 hover:border-blue-500 transition-all duration-300">
+                <button class="w-full text-left px-6 py-4 focus:outline-none">
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                      <!-- Simplified icon container -->
+                      <div class="text-blue-500">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                            d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </div>
+                      <!-- Simplified question text -->
+                      <h4 class="text-gray-900 font-medium">What makes your service unique?</h4>
+                    </div>
+                    <!-- Simplified arrow -->
+                    <svg class="w-4 h-4 text-gray-500 transform transition-transform duration-300" 
+                      fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </button>
+                <div class="px-6 pb-4 hidden">
+                  <p class="text-gray-600">
+                    We combine cutting-edge technology with personalized service. Our team of experts works closely with each client to deliver tailored solutions that meet their specific needs and exceed expectations.
+                  </p>
+                </div>
+              </div>
+
+              <!-- FAQ Item 2 -->
+              <div class="faq-item bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+                <button class="w-full text-left px-8 py-7 focus:outline-none">
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-5">
+                      <span class="flex-shrink-0 w-12 h-12 bg-purple-50 rounded-full flex items-center justify-center">
+                        <svg class="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </span>
+                      <span class="font-bold text-xl text-gray-800">How long does the process take?</span>
+                    </div>
+                    <svg class="w-6 h-6 text-gray-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </button>
+                <div class="px-8 pb-8 hidden">
+                  <p class="text-gray-600 text-lg leading-relaxed">
+                    Project timelines vary based on scope and complexity. Typically, small projects take 2-4 weeks, while larger ones may take 2-3 months. We'll provide a detailed timeline during our initial consultation.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="space-y-8">
+              <!-- FAQ Item 3 -->
+              <div class="faq-item bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+                <button class="w-full text-left px-8 py-7 focus:outline-none">
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-5">
+                      <span class="flex-shrink-0 w-12 h-12 bg-green-50 rounded-full flex items-center justify-center">
+                        <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </span>
+                      <span class="font-bold text-xl text-gray-800">Do you offer ongoing support?</span>
+                    </div>
+                    <svg class="w-6 h-6 text-gray-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </button>
+                <div class="px-8 pb-8 hidden">
+                  <p class="text-gray-600 text-lg leading-relaxed">
+                    Yes! We provide comprehensive support packages including regular maintenance, updates, and technical assistance. Our team is always available to help you succeed.
+                  </p>
+                </div>
+              </div>
+
+              <!-- FAQ Item 4 -->
+              <div class="faq-item bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+                <button class="w-full text-left px-8 py-7 focus:outline-none">
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-5">
+                      <span class="flex-shrink-0 w-12 h-12 bg-red-50 rounded-full flex items-center justify-center">
+                        <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </span>
+                      <span class="font-bold text-xl text-gray-800">What are your payment terms?</span>
+                    </div>
+                    <svg class="w-6 h-6 text-gray-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </button>
+                <div class="px-8 pb-8 hidden">
+                  <p class="text-gray-600 text-lg leading-relaxed">
+                    We offer flexible payment plans with a standard 50% upfront deposit and the remaining balance upon project completion. We also provide monthly payment options for ongoing services.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Enhanced CTA section -->
+          <div class="text-center">
+            <p class="text-gray-600 text-xl mb-8">Still have questions? We're here to help!</p>
+            <a href="#contact" class="inline-flex items-center gap-3 bg-blue-600 text-white px-10 py-4 rounded-full hover:bg-blue-700 transition-colors duration-300 text-lg font-semibold shadow-lg hover:shadow-xl">
+              Contact Support
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+    </article>
+  </main>
+
+
+
+
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+
+    <div class="footer-top section">
+      <div class="container md:px-40">
+
+        <div class="footer-brand">
+
+          <a href="#" class="logo">Asarion</a>
+
+          <p class="footer-text">
+            Lorem ipsum dolor sit amet consecte tur adipisicing elit, sed do eiusmod tempor incididunt ut labore.
+          </p>
+
+          <form action="#" class="newsletter-form">
+            <input type="email" name="email_address" placeholder="Enter your email" required class="email-field">
+
+            <button type="submit" class="form-btn">
+              <ion-icon name="paper-plane" aria-hidden="true"></ion-icon>
+            </button>
+          </form>
+
+        </div>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Our Services</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Strategy & Research</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Web Development</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Web Solution</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Digital Merketing</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">App Design</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">App Development</a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Company</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">About Company</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Our Services</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Our Portfolio</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Our Blog</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Latest News</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Contact Us</a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Contact Us</p>
+          </li>
+
+          <li class="footer-item">
+            <ion-icon name="location" aria-hidden="true"></ion-icon>
+
+            <address class="contact-link address">
+              4517 Washington Ave. Manchester, Kentucky 39495
+            </address>
+          </li>
+
+          <li class="footer-item">
+            <ion-icon name="call" aria-hidden="true"></ion-icon>
+
+            <a href="tel:+7894631546876" class="contact-link">+7894631546876</a>
+          </li>
+
+          <li class="footer-item">
+            <ion-icon name="mail" aria-hidden="true"></ion-icon>
+
+            <a href="mailto:info@Asarion.com" class="contact-link">info@Asarion.com</a>
+          </li>
+
+          <li class="footer-item">
+            <ul class="social-list">
+
+              <li>
+                <a href="#" class="social-link">
+                  <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="social-link">
+                  <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="social-link">
+                  <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="social-link">
+                  <ion-icon name="logo-pinterest"></ion-icon>
+                </a>
+              </li>
+
+            </ul>
+          </li>
+
+        </ul>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <p class="copyright">
+          &copy; 2022 Hoolix | All Rights Reserved by <a href="#" class="copyright-link">codewithsadee</a>
+        </p>
+
+        <ul class="footer-bottom-list">
+
+          <li>
+            <a href="#" class="footer-bottom-link">Privacy Policy</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-bottom-link">Terms of Use</a>
+          </li>
+
+        </ul>
+
+      </div>
+    </div>
+
+  </footer>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="assets/js/script.js"></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="../../unpkg.com/ionicons%405.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="../../unpkg.com/ionicons%405.5.2/dist/ionicons/ionicons.js"></script>
+
+  <!-- Add this just before the closing </body> tag, after the other scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const faqItems = document.querySelectorAll('.faq-item');
+      
+      faqItems.forEach(item => {
+        const button = item.querySelector('button');
+        const content = item.querySelector('div.hidden');
+        const arrow = item.querySelector('svg.transform');
+        
+        button.addEventListener('click', () => {
+          // Toggle current item
+          content.classList.toggle('hidden');
+          arrow.classList.toggle('rotate-180');
+          
+          // Optional: Close other items
+          faqItems.forEach(otherItem => {
+            if (otherItem !== item) {
+              const otherContent = otherItem.querySelector('div.hidden');
+              const otherArrow = otherItem.querySelector('svg.transform');
+              otherContent.classList.add('hidden');
+              otherArrow.classList.remove('rotate-180');
+            }
+          });
+        });
+      });
+    });
+
+  </script>
+
+</body>
+
+
+</html>
