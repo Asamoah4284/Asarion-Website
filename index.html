@@ -128,8 +128,13 @@
 
       <!-- Mobile Menu Button (Simplified) -->
       <button class="nav-open-btn md:hidden" aria-label="open menu" data-nav-toggler>
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <!-- Menu Icon -->
+        <svg class="w-6 h-6" data-menu-icon fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <!-- Close Icon (hidden by default) -->
+        <svg class="w-6 h-6 hidden" data-close-icon fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
 
@@ -163,7 +168,7 @@
 
             <p class="hero-text animate-fade-in-up delay-400">
               At Asarion, we're passionate about elevating brands in the digital space. Our expert team combines creative strategy, 
-              cutting-edge technology, and data-driven insights to help your business thrive online. From brand development to 
+              From brand development to 
               digital marketing, we're your partner in achieving lasting digital success.
             </p>
 
@@ -175,7 +180,7 @@
                 </svg>
               </a>
 
-              <button class="flex-btn transition-all duration-300 hover:scale-105">
+              <button class="flex-btn transition-all duration-300 hover:scale-105" id="play-video">
                 <div class="btn-icon animate-pulse">
                   <ion-icon name="play" aria-hidden="true"></ion-icon>
                 </div>
@@ -211,7 +216,7 @@
             <i class="fa-solid fa-play shape shape-3"></i>
           </figure>
 
-          <div class="about-content">
+          <div class="about-content px-10">
             <h2 class="h2-sm section-title">
               Building Powerful Digital Brands That Leave Lasting Impressions
             </h2>
@@ -222,7 +227,7 @@
               digital landscape.
             </p>
 
-            <ul class="about-list">
+            <ul class="about-list mt-10">
               <li class="has-before">
                 Strategic brand positioning and identity development
               </li>
@@ -687,137 +692,42 @@
 <!-- Updated JavaScript for carousel functionality -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  const carousel = document.querySelector('.carousel-inner');
-  const cards = document.querySelectorAll('.testimonial-card');
-  const prevBtn = document.querySelector('.prev-btn');
-  const nextBtn = document.querySelector('.next-btn');
-  const dots = document.querySelectorAll('.dot-btn');
+  console.log('DOM Content Loaded'); // Debug log 1
   
-  let currentIndex = 0;
+  const modal = document.getElementById('video-modal');
+  const modalOverlay = document.getElementById('modal-overlay');
+  const closeButton = document.getElementById('close-modal');
+  const playButton = document.getElementById('play-video');
+  const videoPlayer = document.getElementById('local-video');
   
-  function getSlidesPerView() {
-    if (window.innerWidth >= 1024) return 3; // lg screens
-    if (window.innerWidth >= 768) return 2;  // md screens
-    return 1; // mobile
+  // Check if elements are found
+  console.log('Play button found:', playButton); // Debug log 2
+  console.log('Modal found:', modal); // Debug log 3
+  
+  function openModal() {
+    console.log('Opening modal'); // Debug log 4
+    modal.classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
+    videoPlayer.play();
   }
   
-  function updateCarousel(transition = true) {
-    const slidesPerView = getSlidesPerView();
-    const slideWidth = 100 / slidesPerView;
-    
-    // Enable/disable transition based on parameter
-    carousel.style.transition = transition ? 'transform 0.5s ease-out' : 'none';
-    
-    // If we're at the end, loop back to start
-    if (currentIndex >= cards.length - slidesPerView + 1) {
-      currentIndex = 0;
-    }
-    
-    // Calculate transform with loop consideration
-    const transform = -currentIndex * slideWidth;
-    carousel.style.transform = `translateX(${transform}%)`;
-    
-    // Update dots
-    dots.forEach((dot, index) => {
-      const isActive = index === currentIndex;
-      dot.classList.toggle('bg-blue-500', isActive);
-      dot.classList.toggle('bg-gray-300', !isActive);
-    });
+  function closeModal() {
+    console.log('Closing modal'); // Debug log 5
+    modal.classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
+    videoPlayer.pause();
+    videoPlayer.currentTime = 0;
   }
-
-  function updateCardWidths() {
-    const slidesPerView = getSlidesPerView();
-    const width = `${100 / slidesPerView}%`;
-    cards.forEach(card => {
-      card.style.width = width;
-    });
-  }
-
-  // Navigation handlers
-  nextBtn.addEventListener('click', () => {
-    currentIndex++;
-    updateCarousel();
-  });
-
-  prevBtn.addEventListener('click', () => {
-    if (currentIndex > 0) {
-      currentIndex--;
-    } else {
-      // Loop to the end if at start
-      currentIndex = cards.length - getSlidesPerView();
+  
+  playButton.addEventListener('click', openModal);
+  closeButton.addEventListener('click', closeModal);
+  modalOverlay.addEventListener('click', closeModal);
+  
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+      closeModal();
     }
-    updateCarousel();
   });
-
-  // Dot navigation
-  dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-      currentIndex = index;
-      updateCarousel();
-    });
-  });
-
-  // Touch handling
-  let touchStartX = 0;
-  let touchEndX = 0;
-
-  carousel.addEventListener('touchstart', e => {
-    touchStartX = e.changedTouches[0].screenX;
-  }, { passive: true });
-
-  carousel.addEventListener('touchend', e => {
-    touchEndX = e.changedTouches[0].screenX;
-    const diff = touchStartX - touchEndX;
-    const threshold = 50;
-
-    if (Math.abs(diff) > threshold) {
-      if (diff > 0) {
-        // Swipe left
-        currentIndex++;
-      } else {
-        // Swipe right
-        if (currentIndex > 0) {
-          currentIndex--;
-        } else {
-          currentIndex = cards.length - getSlidesPerView();
-        }
-      }
-      updateCarousel();
-    }
-  }, { passive: true });
-
-  // Resize handling
-  let resizeTimeout;
-  window.addEventListener('resize', () => {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(() => {
-      updateCardWidths();
-      // Update without transition on resize
-      updateCarousel(false);
-    }, 250);
-  });
-
-  // Optional: Auto-play functionality
-  function autoPlay() {
-    currentIndex++;
-    updateCarousel();
-  }
-
-  // Set interval for auto-play (every 5 seconds)
-  const autoPlayInterval = setInterval(autoPlay, 5000);
-
-  // Pause auto-play on hover (optional)
-  carousel.addEventListener('mouseenter', () => {
-    clearInterval(autoPlayInterval);
-  });
-
-  carousel.addEventListener('mouseleave', () => {
-    setInterval(autoPlay, 5000);
-  });
-
-  // Initial setup
-  updateCardWidths();
-  updateCarousel();
 });
 </script>
 
@@ -1290,7 +1200,7 @@ document.addEventListener('DOMContentLoaded', function() {
         navbarContent.classList.toggle('-translate-x-full');
         document.body.classList.toggle('overflow-hidden');
         
-        // Toggle icons
+        // Toggle menu/close icons
         menuIcon.classList.toggle('hidden');
         closeIcon.classList.toggle('hidden');
       }
@@ -1322,6 +1232,93 @@ document.addEventListener('DOMContentLoaded', function() {
       offset: 100
     });
   </script>
+
+  <!-- Update the modal content -->
+  <div id="video-modal" class="fixed inset-0 z-50 hidden">
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black bg-opacity-75 transition-opacity" id="modal-overlay"></div>
+    
+    <!-- Modal -->
+    <div class="relative min-h-screen flex items-center justify-center p-4">
+      <div class="relative bg-black rounded-lg overflow-hidden w-full max-w-4xl">
+        <!-- Close button -->
+        <button class="absolute top-4 right-4 text-white hover:text-gray-300 z-10" id="close-modal">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        
+        <!-- Video container with 16:9 aspect ratio -->
+        <div class="relative" style="padding-top: 56.25%;">
+          <video id="local-video" 
+                 class="absolute top-0 left-0 w-full h-full" 
+                 controls 
+                 preload="metadata">
+            <source src="assets/videos/Netflix.mp4" type="video/mp4">
+            <source src="path/to/your/video.webm" type="video/webm">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Update the JavaScript -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('video-modal');
+    const modalOverlay = document.getElementById('modal-overlay');
+    const closeButton = document.getElementById('close-modal');
+    const playButton = document.getElementById('play-video');
+    const videoPlayer = document.getElementById('local-video');
+    
+    function openModal() {
+      modal.classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+      // Auto play the video when modal opens
+      videoPlayer.play();
+    }
+    
+    function closeModal() {
+      modal.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+      // Pause the video when modal closes
+      videoPlayer.pause();
+      // Reset video position to start
+      videoPlayer.currentTime = 0;
+    }
+    
+    playButton.addEventListener('click', openModal);
+    closeButton.addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', closeModal);
+    
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+        closeModal();
+      }
+    });
+  });
+  </script>
+
+  <!-- Add these styles to your CSS -->
+  <style>
+  .aspect-w-16 {
+    position: relative;
+  }
+
+  /* Modal content sizing */
+  #video-modal .max-w-4xl {
+    width: 90%; /* Responsive width */
+    max-height: 80vh; /* Maximum height */
+  }
+
+  /* Ensure modal content is centered */
+  #video-modal .relative.min-h-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  </style>
 
 </body>
 
